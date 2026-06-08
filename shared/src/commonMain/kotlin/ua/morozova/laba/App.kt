@@ -13,16 +13,23 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 
 import laba.shared.generated.resources.Res
 import laba.shared.generated.resources.compose_multiplatform
+import laba.shared.generated.resources.googlesans_regular
+import laba.shared.generated.resources.montserrat_regular
+import org.jetbrains.compose.resources.Font
+import ua.morozova.laba.ui.theme.AppTheme
 
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    AppTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(
             modifier = Modifier
@@ -41,7 +48,15 @@ fun App() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
+                    Text(
+                        text = "Hi World",
+                        style = TextStyle(
+                            fontSize = 28.sp,
+                            fontFamily = FontFamily(
+                                Font(Res.font.montserrat_regular)
+                            ),
+                        )
+                    )
                 }
             }
         }
